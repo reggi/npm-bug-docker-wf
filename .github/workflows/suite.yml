@@ -6,8 +6,18 @@ on:
       - main
 
 jobs: 
-  test:
+  a:
+    uses: ./.github/workflows/test.yml
+    with:
+      operatingSystem: 'ubuntu-latest'
+      npmVersion: '10.5.1'
+  b:
     uses: ./.github/workflows/test.yml
     with:
       operatingSystem: 'ubuntu-latest'
       npmVersion: '10.5.2'
+  c:
+    uses: ./.github/workflows/test.yml
+    with:
+      operatingSystem: 'ubuntu-latest'
+      npmVersion: 'latest'
