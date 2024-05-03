@@ -1,0 +1,27 @@
+FROM node:iron
+
+ARG NPM_VERSION
+ENV NPM_VERSION $NPM_VERSION
+
+WORKDIR /
+
+COPY package.json .
+COPY packages/alpha/package.json .
+
+# COPY /Users/reggi/Documents/GitHub/cli/bin/npm-cli.js /usr/local/bin/npm-cli.js
+# RUN chmod +x /usr/local/bin/npm-cli.js
+# RUN echo 'alias npm="/usr/local/bin/npm-cli.js"' >> ~/.bashrc
+
+RUN npm install -g npm@$NPM_VERSION
+RUN npm config set loglevel silly
+
+# RUN npm run -w packages/alpha build
+# RUN npm run -w alpha build
+# RUN npm run --workspace packages/alpha build
+# RUN npm run --workspace alpha build
+# RUN npm run -w=packages/alpha build
+# RUN npm run -w=alpha build
+# RUN npm run --workspace=packages/alpha build
+RUN npm run --workspace=alpha build
+
+ENTRYPOINT ["bash"]

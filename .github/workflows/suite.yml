@@ -1,0 +1,13 @@
+name: Wf Script
+
+on:
+  push:
+    branches:
+      - main
+
+jobs: 
+  test:
+    uses: ./.github/workflows/suite.yml
+    with:
+      operatingSystem: 'ubuntu-latest'
+      npmVersion: '10.5.2'

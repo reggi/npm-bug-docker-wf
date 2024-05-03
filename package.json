@@ -1,0 +1,20 @@
+{
+  "name": "npm-bug-example",
+  "version": "1.0.0",
+  "description": "MVP for bug",
+  "main": "index.js",
+  "scripts": {
+    "npm-good": "docker build --progress=plain -t npm-test -f ./Dockerfile.txt . --build-arg=NPM_VERSION=10.5.1",
+    "npm-bad": "docker build --progress=plain -t npm-test -f ./Dockerfile.txt . --build-arg=NPM_VERSION=10.5.2",
+    "npm-latest": "docker build --progress=plain -t npm-test -f ./Dockerfile.txt . --build-arg=NPM_VERSION=latest",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "packages/alpha"
+  ],
+  "dependencies": {
+    "npm": "^10.5.2"
+  }
+}
