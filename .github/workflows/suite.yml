@@ -7,7 +7,7 @@ on:
 
 jobs: 
   test:
-    uses: ./.github/workflows/suite.yml
+    uses: ./.github/workflows/test.yml
     with:
       operatingSystem: 'ubuntu-latest'
       npmVersion: '10.5.2'
